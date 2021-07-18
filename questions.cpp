@@ -452,3 +452,114 @@ double Quest23(double arr[10]) {
 	}
 	return p;
 }
+void Quest25(int arr[15]) {
+	int zan[10];
+	int j = 0;
+	for (int i = 0; i < 15; i++)
+	{
+		if (arr[i] <= 0) {
+			zan[j] = arr[i];
+			j++;
+		}
+	}
+	for (int o = 0; o < j-1; o++)
+	{
+		for (int k = o+1; k < j; k++)
+		{
+			if (zan[o] > zan[k]) {
+				int tmp = zan[o];
+				zan[o] = zan[k];
+				zan[k] = tmp;
+			}
+		}
+	}
+	int y = j;
+	for (int i = 0; i < 15; i++)
+	{
+		if (arr[i] > 0) {
+			zan[j] = arr[i];
+			j++;
+		}
+	}
+	for (int i = y; i < 14; i++)
+	{
+		for (int k = y+1; k < 15; k++)
+		{
+			if (zan[i] < zan[k]) {
+				int tmp = zan[i];
+				zan[i] = zan[k];
+				zan[k] = tmp;
+			}
+		}
+	}
+}
+void Quest26(int arr[12], int zan[12]) {
+	for (int i = 0; i < 12; i++)
+	{
+		bool t = false;
+		for (int j = i; j < 12; j++)
+		{
+			if (arr[i] == zan[j]) {
+				zan[j] = 0;
+				t = true;
+			}
+		}
+		if (t)
+		{
+			zan[i] = 0;
+		}
+	}
+}
+void Quest27(int arr[10]) {
+	bool t = false;
+	int count = 0;
+	for (int i = 1; i < 10; i++)
+	{
+		if (arr[i - 1] < arr[i]) {
+			t = true;
+		}
+		else {
+			t = false;
+			count++;
+		}
+	}
+	if (t) {
+		count++;
+	}
+}
+int Quest28(int arr[10]) {
+	int kent = 0, zuyg = 0;
+	for (int i = 0; i < 10; i++)
+	{
+		if (i % 2 == 0)
+			zuyg += arr[i];
+		else
+			kent += arr[i];
+	}
+	if (kent>=zuyg)
+	{
+		return kent - zuyg;
+	}
+	return zuyg - kent;
+
+}
+void Quest30(int arr[10], int zan[10]) {
+	int maxx = 0, maxy = 0;
+	for (int i = 0; i < 10; i++)
+	{
+		if (arr[maxx] < arr[i])
+			maxx = i;
+	}
+	for (int i = 0; i < 10; i++)
+	{
+		if (arr[maxy] < arr[i])
+			maxy = i;
+	}
+	int tmp = arr[maxx];
+	arr[maxx] = zan[maxy];
+	zan[maxy] = tmp;
+}
+int main()
+{
+	
+}
